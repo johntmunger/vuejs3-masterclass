@@ -21,6 +21,7 @@ export default defineConfigWithVueTs(
   pluginVue.configs['flat/essential'],
   {
     rules: {
+      semi: ['error', 'always'],
       'vue/multi-word-component-names': 0,
     },
   },
