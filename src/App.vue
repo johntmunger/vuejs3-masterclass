@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { supabase } from '@/lib/supabaseClient';
+
+//src/App.vue
+
+console.log(supabase);
+</script>
 
 <template>
   <main>
