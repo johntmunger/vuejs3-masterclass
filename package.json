@@ -13,7 +13,9 @@
     "format": "prettier --write src/",
     "supabase:init": "supabase init",
     "supabase:login": "supabase login",
-    "supabase:link": "supabase link --project-ref tfhcrcbkkliqfjdoonct"
+    "supabase:link": "supabase link --project-ref tfhcrcbkkliqfjdoonct",
+    "db:migrate:new": "supabase migration new projects-shcema",
+    "db:reset": "supabase db reset --linked"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
@@ -22,6 +24,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.13.9",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
