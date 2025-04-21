@@ -1,3 +1,5 @@
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'node:url';
 import VueRouter from 'unplugin-vue-router/vite';
 
@@ -11,9 +13,20 @@ export default defineConfig({
     VueRouter({
       /* options */
     }),
-    Vue(),
+    Vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (element) => element.startsWith('iconify-icon'),
+        },
+      },
+    }),
     vueDevTools(),
   ],
+  css: {
+    postcss: {
+      plugins: [tailwind(), autoprefixer()],
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
