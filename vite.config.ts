@@ -2,6 +2,8 @@ import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'node:url';
 import VueRouter from 'unplugin-vue-router/vite';
+import { VueRouterAutoImports } from 'unplugin-vue-router';
+
 
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';

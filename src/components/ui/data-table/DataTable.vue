@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="TData, TValue">
-import type { ColumnDef } from '@tanstack/vue-table'
-import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table'
+import type { ColumnDef } from '@tanstack/vue-table';
+import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table';
 
 import {
   Table,
@@ -8,23 +8,23 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table'
+  TableRow,
+} from '@/components/ui/table';
 
 const props = defineProps<{
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-}>()
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+}>();
 
 const table = useVueTable({
   get data() {
-    return props.data
+    return props.data;
   },
   get columns() {
-    return props.columns
+    return props.columns;
   },
-  getCoreRowModel: getCoreRowModel()
-})
+  getCoreRowModel: getCoreRowModel(),
+});
 </script>
 
 <template>
