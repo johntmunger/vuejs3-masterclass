@@ -6,7 +6,7 @@ import DataTable from '@/components/ui/data-table/DataTable.vue'
 import { RouterLink } from 'vue-router'
 
 const projects = ref<Tables<'projects'>[] | null>(null)
-;(async () => {
+const getProjects = async () => {
   const { data, error } = await supabase.from('projects').select()
 
   if (error) console.log(error)
@@ -14,7 +14,9 @@ const projects = ref<Tables<'projects'>[] | null>(null)
   projects.value = data
 
   console.log('projects: ', projects.value)
-})()
+}
+
+await getProjects();
 
 const columns: ColumnDef<Tables<'projects'>>[] = [
   {
