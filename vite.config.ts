@@ -2,16 +2,33 @@ import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'node:url';
 import VueRouter from 'unplugin-vue-router/vite';
+import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
+import AutoImport from 'unplugin-auto-import/vite'
+
+
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    VueRouter({
-      /* options */
+    VueRouter(),
+    AutoImport({
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.vue\.[tj]sx?\?vue/, // .vue (vue-loader with experimentalInlineMatchResource enabled)
+        /\.md$/, // .md
+      ],
+      imports: [
+        'vue',
+        VueRouterAutoImports
+      ],
+      dts: true,
+      viteOptimizeDeps: true
     }),
     Vue({
       template: {
