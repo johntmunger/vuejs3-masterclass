@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+ import { usePageStore  } from '@/stores/page';
+
+ usePageStore().pageData.title = "Home page";
+</script>
 
 <template>
   <div>
-    <h1>Home Page</h1>
+    <!-- title inherited from pinia store -->
+    <!-- <h1>Home page</h1> -->
   </div>
 </template>
