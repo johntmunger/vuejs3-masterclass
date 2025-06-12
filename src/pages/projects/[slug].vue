@@ -18,33 +18,30 @@ await getProjects();
 </script>
 
 <template>
-  <Table>
+  <Table v-if="project">
     <TableRow>
-      <TableHead> Name </TableHead>
-      <TableCell> Lorem ipsum dolor sit amet. </TableCell>
+      <TableHead>Name: </TableHead>
+      <TableCell>{{ project.name }}</TableCell>
     </TableRow>
     <TableRow>
-      <TableHead> Description </TableHead>
+      <TableHead>Description: </TableHead>
       <TableCell>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iure qui tempora ex nihil, ab
-        reprehenderit dolorem sunt veritatis perferendis? Repudiandae quis velit quasi ab natus quia
-        ratione voluptas deserunt labore sed distinctio nam fuga fugit vero voluptates placeat
-        aperiam, saepe excepturi eos harum consectetur doloremque perspiciatis nesciunt! Incidunt,
-        modi.
+        {{ project.name}}: &nbsp; {{ project.Description }}
       </TableCell>
     </TableRow>
     <TableRow>
-      <TableHead> Status </TableHead>
-      <TableCell>In progress</TableCell>
+      <TableHead>Status: </TableHead>
+      <TableCell>{{ project.status }}</TableCell>
     </TableRow>
     <TableRow>
-      <TableHead> Collaborators </TableHead>
+      <TableHead>Collaborators: </TableHead>
+      <!-- <TableCell>{{ project.collaborators }}  </TableCell> -->
       <TableCell>
         <div class="flex">
           <Avatar
             class="-mr-4 border border-primary hover:scale-110 transition-transform"
-            v-for="n in 5"
-            :key="n"
+            v-for="collab in project.collaborators"
+            :key="collab"
           >
             <RouterLink class="w-full h-full flex items-center justify-center" to="">
               <AvatarImage src="" alt="" />
@@ -56,7 +53,7 @@ await getProjects();
     </TableRow>
   </Table>
 
-  <section class="mt-10 flex flex-col md:flex-row gap-5 justify-between grow">
+  <section v-if="project" class="mt-10 flex flex-col md:flex-row gap-5 justify-between grow">
     <div class="flex-1">
       <h2>Tasks</h2>
       <div class="table-container">
@@ -69,9 +66,9 @@ await getProjects();
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow v-for="n in 5" :key="n">
-              <TableCell> Lorem ipsum dolor sit amet. </TableCell>
-              <TableCell> In progress </TableCell>
+            <TableRow v-for="task in project.tasks" :key="task.id">
+              <TableCell>Lorem ipsum dolor sit amet.</TableCell>
+              <TableCell> In-progress</TableCell>
               <TableCell> 22/08/2024 </TableCell>
             </TableRow>
           </TableBody>
