@@ -6,7 +6,7 @@ create table
     created_at timestamptz default now() not null,
     name text not null,
     status current_status default 'in-progress' not null,
-    description text not null,
+    description text,
     due_date date default null,
     project_id bigint references projects (id) default null,
     collaborators text array default array[]::varchar[] not null

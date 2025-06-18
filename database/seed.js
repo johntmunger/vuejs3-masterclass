@@ -49,7 +49,7 @@ const seedTasks = async (numEntries, projectsIds) => {
     tasks.push({
       name: faker.lorem.words(3),
       status: faker.helpers.arrayElement(['in-progress', 'completed']),
-      description: faker.lorem.paragraph(),
+      description: faker.lorem.paragraph(2),
       due_date: faker.date.future(),
       project_id: faker.helpers.arrayElement(projectsIds),
       collaborators: faker.helpers.arrayElements([1, 2, 3]),

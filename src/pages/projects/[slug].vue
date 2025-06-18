@@ -26,7 +26,7 @@ await getProjects();
     <TableRow>
       <TableHead>Description: </TableHead>
       <TableCell>
-        {{ project.name}}: &nbsp; {{ project.Description }}
+        {{ project.name}}: &nbsp; {{ project.description }}
       </TableCell>
     </TableRow>
     <TableRow>
