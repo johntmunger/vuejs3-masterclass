@@ -5,7 +5,7 @@ import Sidebar from '@/components/Layout/Sidebar.vue';
 import { usePageStore } from '@/stores/page';
 import { storeToRefs } from 'pinia';
 
-const { pageData } = storeToRefs(usePageStore())
+const { pageData } = storeToRefs(usePageStore());
 </script>
 
 <template>

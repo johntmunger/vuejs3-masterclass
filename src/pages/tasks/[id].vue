@@ -11,17 +11,17 @@ const task = ref<Task | null>(null);
 watch(
   () => task.value?.name,
   () => {
-    usePageStore().pageData.title = `Task: ${task.value?.name || ''}`
-  }
-)
+    usePageStore().pageData.title = `Task: ${task.value?.name || ''}`;
+  },
+);
 
 const getTask = async () => {
-  const { data, error, status } = await taskQuery(route.params.id)
+  const { data, error, status } = await taskQuery(route.params.id);
 
-  if (error) useErrorStore().setError({error, customCode: status})
+  if (error) useErrorStore().setError({ error, customCode: status });
 
-  task.value = data
-}
+  task.value = data;
+};
 
 await getTask();
 </script>
@@ -34,15 +34,11 @@ await getTask();
     </TableRow>
     <TableRow>
       <TableHead>Description: </TableHead>
-      <TableCell>
-        {{ task.name}}: &nbsp; {{ task.description }}
-      </TableCell>
+      <TableCell> {{ task.name }}: &nbsp; {{ task.description }} </TableCell>
     </TableRow>
     <TableRow>
       <TableHead>Assignee: </TableHead>
-      <TableCell>
-        Lorem ipsum
-      </TableCell>
+      <TableCell> Lorem ipsum </TableCell>
     </TableRow>
     <TableRow>
       <TableHead>Project: </TableHead>
@@ -104,4 +100,3 @@ await getTask();
     </TableRow>
   </Table>
 </template>
-

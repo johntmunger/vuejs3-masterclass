@@ -1,7 +1,6 @@
-import { RouterLink } from "vue-router"
-import type { Projects } from "../supaQueries"
-import type { ColumnDef } from "@tanstack/vue-table"
-
+import { RouterLink } from 'vue-router';
+import type { Projects } from '../supaQueries';
+import type { ColumnDef } from '@tanstack/vue-table';
 
 export const columns: ColumnDef<Projects[0]>[] = [
   {
@@ -12,18 +11,18 @@ export const columns: ColumnDef<Projects[0]>[] = [
         RouterLink,
         {
           to: `/projects/${row.original.slug}`,
-          class: 'text-left font-medium hover:bg-muted block w-full'
+          class: 'text-left font-medium hover:bg-muted block w-full',
         },
-        () => row.getValue('name')
-      )
-    }
+        () => row.getValue('name'),
+      );
+    },
   },
   {
     accessorKey: 'status',
     header: () => h('div', { class: 'text-left' }, 'Status'),
     cell: ({ row }) => {
-      return h('div', { class: 'text-left font-medium' }, row.getValue('status'))
-    }
+      return h('div', { class: 'text-left font-medium' }, row.getValue('status'));
+    },
   },
   {
     accessorKey: 'collaborators',
@@ -32,8 +31,8 @@ export const columns: ColumnDef<Projects[0]>[] = [
       return h(
         'div',
         { class: 'text-left font-medium' },
-        JSON.stringify(row.getValue('collaborators'))
-      )
-    }
-  }
-]
+        JSON.stringify(row.getValue('collaborators')),
+      );
+    },
+  },
+];

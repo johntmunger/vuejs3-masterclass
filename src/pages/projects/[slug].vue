@@ -8,12 +8,12 @@ const route = useRoute('/projects/[slug]');
 const project = ref<Project | null>(null);
 
 const getProjects = async () => {
-  const { data, error, status } = await projectQuery(route.params.slug)
+  const { data, error, status } = await projectQuery(route.params.slug);
 
-  if (error) useErrorStore().setError({error, customCode: status})
+  if (error) useErrorStore().setError({ error, customCode: status });
 
   project.value = data;
-}
+};
 
 await getProjects();
 </script>
@@ -26,9 +26,7 @@ await getProjects();
     </TableRow>
     <TableRow>
       <TableHead>Description: </TableHead>
-      <TableCell>
-        {{ project.name}}: &nbsp; {{ project.description }}
-      </TableCell>
+      <TableCell> {{ project.name }}: &nbsp; {{ project.Description }} </TableCell>
     </TableRow>
     <TableRow>
       <TableHead>Status: </TableHead>
