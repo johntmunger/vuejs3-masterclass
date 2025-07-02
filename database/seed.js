@@ -1,5 +1,9 @@
 /* eslint-env node */
 
+// to db:reset use the following command if ownership issues
+// npx supabase@beta db reset --linked
+
+
 import { fakerEN_US as faker } from '@faker-js/faker';
 import { createClient } from '@supabase/supabase-js';
 
