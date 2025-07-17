@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { acceptHMRUpdate, defineStore } from 'pinia';
 import type { CustomError, ExtendedPostgrestError } from '@/types/Error';
 import type { PostgrestError } from '@supabase/supabase-js';
 
@@ -37,3 +37,7 @@ export const useErrorStore = defineStore('error-store', () => {
     clearError
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useErrorStore, import.meta.hot));
+}
