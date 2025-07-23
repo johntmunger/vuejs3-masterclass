@@ -34,7 +34,6 @@ export const login = async (formData: LoginForm) => {
 
   if (error) return console.log(error)
 
-  // await authStore.setAuth(data.session)
   return true
 }
 
@@ -43,6 +42,5 @@ export const logout = async () => {
 
   if (error) return console.log(error)
 
-  // await authStore.setAuth()
   return true
 }
