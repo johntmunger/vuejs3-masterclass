@@ -2,6 +2,8 @@
 import AuthLayout from '@/components/Layout/main/AuthLayout.vue';
 import { useErrorStore } from './stores/error';
 import { storeToRefs } from 'pinia';
+import { supabase } from './lib/supabaseClient';
+import { useAuthStore } from './stores/auth';
 
 const { activeError } = storeToRefs(useErrorStore());
 const errorStore = useErrorStore();
@@ -11,7 +13,9 @@ onErrorCaptured((error) => {
   errorStore.setError({ error });
 });
 
-onMounted(async () => {});
+onMounted(async () => {
+  useAuthStore().trackAuthChanges()
+});
 
 </script>
 
