@@ -1,21 +1,21 @@
 <script setup lang="ts">
 interface LinkProp {
-  title: string
-  to?: string
-  icon: string
+  title: string;
+  to?: string;
+  icon: string;
 }
 
 const props = defineProps<{
-  links: LinkProp[]
-}>()
+  links: LinkProp[];
+}>();
 
 const emits = defineEmits<{
-  actionClicked: [string]
-}>()
+  actionClicked: [string];
+}>();
 
 const emitActionClicked = (linkTitle: string) => {
-  emits('actionClicked', linkTitle)
-}
+  emits('actionClicked', linkTitle);
+};
 </script>
 
 <template>

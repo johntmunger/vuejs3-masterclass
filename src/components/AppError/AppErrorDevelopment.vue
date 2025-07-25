@@ -1,12 +1,12 @@
 <script setup lang="ts">
 defineProps<{
-  message: string
-  customCode: number
-  code: string
-  statusCode: number
-  hint: string | null
-  details: string
-}>()
+  message: string;
+  customCode: number;
+  code: string;
+  statusCode: number;
+  hint: string | null;
+  details: string;
+}>();
 </script>
 
 <template>

@@ -8,15 +8,13 @@ import { useAuthStore } from './stores/auth';
 const { activeError } = storeToRefs(useErrorStore());
 const errorStore = useErrorStore();
 
-
 onErrorCaptured((error) => {
   errorStore.setError({ error });
 });
 
 onMounted(async () => {
-  useAuthStore().trackAuthChanges()
+  useAuthStore().trackAuthChanges();
 });
-
 </script>
 
 <template>
